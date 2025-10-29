@@ -1,0 +1,25 @@
+{
+  "timestamp": "2025-10-29T13:26:06.392331Z",
+  "stocks": [
+    {
+      "ticker": "AAPL",
+      "error": "429 Client Error: Too Many Requests for url: https://query1.finance.yahoo.com/v8/finance/chart/AAPL?interval=1d&range=1d"
+    },
+    {
+      "ticker": "GOOGL",
+      "error": "429 Client Error: Too Many Requests for url: https://query1.finance.yahoo.com/v8/finance/chart/GOOGL?interval=1d&range=1d"
+    },
+    {
+      "ticker": "MSFT",
+      "error": "429 Client Error: Too Many Requests for url: https://query1.finance.yahoo.com/v8/finance/chart/MSFT?interval=1d&range=1d"
+    },
+    {
+      "ticker": "AMZN",
+      "error": "429 Client Error: Too Many Requests for url: https://query1.finance.yahoo.com/v8/finance/chart/AMZN?interval=1d&range=1d"
+    },
+    {
+      "ticker": "TSLA",
+      "error": "429 Client Error: Too Many Requests for url: https://query1.finance.yahoo.com/v8/finance/chart/TSLA?interval=1d&range=1d"
+    }
+  ]
+}
