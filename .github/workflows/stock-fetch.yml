@@ -1,0 +1,58 @@
+name: Stock Data Pipeline
+
+on:
+  schedule:
+    # 平日15:00 JST = 06:00 UTC (月-金)
+    - cron: '0 6 * * 1-5'
+  workflow_dispatch:  # 手動実行も可能
+
+jobs:
+  fetch-and-update:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write  # ファイル更新のため
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+      
+      - name: Fetch stock data
+        run: |
+          python dags/fetch_stock_data.py
+      
+      - name: Generate chart
+        run: |
+          python scripts/generate_chart.py
+      
+      - name: Update README
+        run: |
+          python scripts/update_readme.py
+      
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # タイムスタンプ取得
+          TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          
+          # 変更があればコミット
+          if [[ -n $(git status --porcelain) ]]; then
+            git add data/ charts/ README.md
+            git commit -m "auto: update stock data and chart ${TIMESTAMP}"
+            git push
+            echo "Changes committed and pushed"
+          else
+            echo "No changes to commit"
+          fi
