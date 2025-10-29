@@ -1,25 +1,60 @@
 {
-  "timestamp": "2025-10-29T13:26:06.392331Z",
+  "timestamp": "2025-10-29T13:29:30.815497Z",
   "stocks": [
     {
       "ticker": "AAPL",
-      "error": "429 Client Error: Too Many Requests for url: https://query1.finance.yahoo.com/v8/finance/chart/AAPL?interval=1d&range=1d"
+      "currency": "USD",
+      "regularMarketPrice": 269.0,
+      "previousClose": null,
+      "open": 268.989990234375,
+      "high": 269.8900146484375,
+      "low": 268.1499938964844,
+      "close": 269.0,
+      "volume": 41461500
     },
     {
       "ticker": "GOOGL",
-      "error": "429 Client Error: Too Many Requests for url: https://query1.finance.yahoo.com/v8/finance/chart/GOOGL?interval=1d&range=1d"
+      "currency": "USD",
+      "regularMarketPrice": 267.47,
+      "previousClose": null,
+      "open": 269.69000244140625,
+      "high": 270.7300109863281,
+      "low": 266.5,
+      "close": 267.4700012207031,
+      "volume": 29664400
     },
     {
       "ticker": "MSFT",
-      "error": "429 Client Error: Too Many Requests for url: https://query1.finance.yahoo.com/v8/finance/chart/MSFT?interval=1d&range=1d"
+      "currency": "USD",
+      "regularMarketPrice": 542.07,
+      "previousClose": null,
+      "open": 550.0,
+      "high": 553.719970703125,
+      "low": 540.77001953125,
+      "close": 542.0700073242188,
+      "volume": 29909300
     },
     {
       "ticker": "AMZN",
-      "error": "429 Client Error: Too Many Requests for url: https://query1.finance.yahoo.com/v8/finance/chart/AMZN?interval=1d&range=1d"
+      "currency": "USD",
+      "regularMarketPrice": 229.25,
+      "previousClose": null,
+      "open": 228.22000122070312,
+      "high": 231.49000549316406,
+      "low": 226.2100067138672,
+      "close": 229.25,
+      "volume": 46947300
     },
     {
       "ticker": "TSLA",
-      "error": "429 Client Error: Too Many Requests for url: https://query1.finance.yahoo.com/v8/finance/chart/TSLA?interval=1d&range=1d"
+      "currency": "USD",
+      "regularMarketPrice": 460.55,
+      "previousClose": null,
+      "open": 454.7799987792969,
+      "high": 467.0,
+      "low": 451.6000061035156,
+      "close": 460.54998779296875,
+      "volume": 79906500
     }
   ]
 }
