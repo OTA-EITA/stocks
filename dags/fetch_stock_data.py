@@ -6,6 +6,8 @@ Yahoo Finance APIから株価情報を取得し、JSONファイルに保存す�
 
 import json
 import requests
+import time
+import random
 from datetime import datetime
 from pathlib import Path
 
@@ -39,8 +41,12 @@ def fetch_stock_price(ticker: str) -> dict:
         "range": "1d",
     }
     
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    }
+    
     try:
-        response = requests.get(url, params=params, timeout=10)
+        response = requests.get(url, params=params, headers=headers, timeout=10)
         response.raise_for_status()
         data = response.json()
         
@@ -75,10 +81,16 @@ def main():
     
     # データ取得
     results = []
-    for ticker in TICKERS:
+    for i, ticker in enumerate(TICKERS):
         print(f"Fetching {ticker}...")
         stock_data = fetch_stock_price(ticker)
         results.append(stock_data)
+        
+        # レート制限対策: リクエスト間隔を空ける
+        if i < len(TICKERS) - 1:
+            sleep_time = random.uniform(1, 3)
+            print(f"Waiting {sleep_time:.1f}s...")
+            time.sleep(sleep_time)
     
     # タイムスタンプ追加
     output_data = {
