@@ -1,60 +1,60 @@
 {
-  "timestamp": "2025-10-29T13:29:30.815497Z",
+  "timestamp": "2025-10-29T13:33:08.621119Z",
   "stocks": [
     {
       "ticker": "AAPL",
       "currency": "USD",
-      "regularMarketPrice": 269.0,
+      "regularMarketPrice": 269.23,
       "previousClose": null,
-      "open": 268.989990234375,
-      "high": 269.8900146484375,
-      "low": 268.1499938964844,
-      "close": 269.0,
-      "volume": 41461500
+      "open": 269.27,
+      "high": 269.39,
+      "low": 268.7,
+      "close": 269.23,
+      "volume": 3004576
     },
     {
       "ticker": "GOOGL",
       "currency": "USD",
-      "regularMarketPrice": 267.47,
+      "regularMarketPrice": 269.74,
       "previousClose": null,
-      "open": 269.69000244140625,
-      "high": 270.7300109863281,
-      "low": 266.5,
-      "close": 267.4700012207031,
-      "volume": 29664400
+      "open": 267.76,
+      "high": 269.25,
+      "low": 267.67,
+      "close": 269.74,
+      "volume": 1746681
     },
     {
       "ticker": "MSFT",
       "currency": "USD",
-      "regularMarketPrice": 542.07,
+      "regularMarketPrice": 542.86,
       "previousClose": null,
-      "open": 550.0,
-      "high": 553.719970703125,
-      "low": 540.77001953125,
-      "close": 542.0700073242188,
-      "volume": 29909300
+      "open": 544.94,
+      "high": 546.27,
+      "low": 542.49,
+      "close": 542.86,
+      "volume": 1685490
     },
     {
       "ticker": "AMZN",
       "currency": "USD",
-      "regularMarketPrice": 229.25,
+      "regularMarketPrice": 230.56,
       "previousClose": null,
-      "open": 228.22000122070312,
-      "high": 231.49000549316406,
-      "low": 226.2100067138672,
-      "close": 229.25,
-      "volume": 46947300
+      "open": 231.67,
+      "high": 232.81,
+      "low": 230.51,
+      "close": 230.56,
+      "volume": 4501153
     },
     {
       "ticker": "TSLA",
       "currency": "USD",
-      "regularMarketPrice": 460.55,
+      "regularMarketPrice": 462.35,
       "previousClose": null,
-      "open": 454.7799987792969,
-      "high": 467.0,
-      "low": 451.6000061035156,
-      "close": 460.54998779296875,
-      "volume": 79906500
+      "open": 462.42,
+      "high": 463.29,
+      "low": 461.5,
+      "close": 462.35,
+      "volume": 3136806
     }
   ]
 }
