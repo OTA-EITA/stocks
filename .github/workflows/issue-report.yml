@@ -28,12 +28,22 @@ jobs:
             echo "data_exists=false" >> $GITHUB_OUTPUT
           fi
       
+      - name: Create issue body with code block
+        if: steps.read_data.outputs.data_exists == 'true'
+        run: |
+          echo '## 株価データ' > issue_body.md
+          echo '' >> issue_body.md
+          echo '```json' >> issue_body.md
+          cat data/stock_prices.json >> issue_body.md
+          echo '' >> issue_body.md
+          echo '```' >> issue_body.md
+      
       - name: Create issue from data
         if: steps.read_data.outputs.data_exists == 'true'
         uses: peter-evans/create-issue-from-file@v5
         with:
           title: "株価レポート - ${{ github.event.workflow_run.created_at }}"
-          content-filepath: ./data/stock_prices.json
+          content-filepath: ./issue_body.md
           labels: |
             report
             daily
