@@ -49,7 +49,7 @@ jobs:
           
           # 変更があればコミット
           if [[ -n $(git status --porcelain) ]]; then
-            git add data/ charts/ README.md
+            git add -A
             git commit -m "auto: update stock data and chart ${TIMESTAMP}"
             git push
             echo "Changes committed and pushed"
