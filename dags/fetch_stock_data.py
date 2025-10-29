@@ -58,12 +58,12 @@ def fetch_stock_price(ticker: str) -> dict:
         return {
             "ticker": ticker,
             "currency": meta.get("currency", "USD"),
-            "regularMarketPrice": meta.get("regularMarketPrice"),
-            "previousClose": meta.get("previousClose"),
-            "open": quote.get("open", [None])[0],
-            "high": quote.get("high", [None])[0],
-            "low": quote.get("low", [None])[0],
-            "close": quote.get("close", [None])[0],
+            "regularMarketPrice": round(meta.get("regularMarketPrice", 0), 2) if meta.get("regularMarketPrice") else None,
+            "previousClose": round(meta.get("previousClose", 0), 2) if meta.get("previousClose") else None,
+            "open": round(quote.get("open", [None])[0], 2) if quote.get("open", [None])[0] else None,
+            "high": round(quote.get("high", [None])[0], 2) if quote.get("high", [None])[0] else None,
+            "low": round(quote.get("low", [None])[0], 2) if quote.get("low", [None])[0] else None,
+            "close": round(quote.get("close", [None])[0], 2) if quote.get("close", [None])[0] else None,
             "volume": quote.get("volume", [None])[0],
         }
     except Exception as e:
