@@ -1,60 +1,60 @@
 {
-  "timestamp": "2025-10-29T13:35:58.046251Z",
+  "timestamp": "2025-10-30T06:21:52.432132Z",
   "stocks": [
     {
       "ticker": "AAPL",
       "currency": "USD",
-      "regularMarketPrice": 269.48,
+      "regularMarketPrice": 269.7,
       "previousClose": null,
-      "open": 269.27,
-      "high": 269.78,
-      "low": 268.7,
-      "close": 269.48,
-      "volume": 3516846
+      "open": 269.28,
+      "high": 271.41,
+      "low": 267.11,
+      "close": 269.7,
+      "volume": 50984000
     },
     {
       "ticker": "GOOGL",
       "currency": "USD",
-      "regularMarketPrice": 269.3,
+      "regularMarketPrice": 274.57,
       "previousClose": null,
-      "open": 267.76,
-      "high": 270.1,
+      "open": 267.75,
+      "high": 275.34,
       "low": 267.67,
-      "close": 269.3,
-      "volume": 2068737
+      "close": 274.57,
+      "volume": 43019400
     },
     {
       "ticker": "MSFT",
       "currency": "USD",
-      "regularMarketPrice": 541.5,
+      "regularMarketPrice": 541.55,
       "previousClose": null,
       "open": 544.94,
       "high": 546.27,
-      "low": 540.71,
-      "close": 541.51,
-      "volume": 2128394
+      "low": 536.73,
+      "close": 541.55,
+      "volume": 35368400
     },
     {
       "ticker": "AMZN",
       "currency": "USD",
-      "regularMarketPrice": 230.93,
+      "regularMarketPrice": 230.3,
       "previousClose": null,
       "open": 231.67,
-      "high": 232.81,
-      "low": 230.4,
-      "close": 230.93,
-      "volume": 5294862
+      "high": 232.82,
+      "low": 227.76,
+      "close": 230.3,
+      "volume": 51765000
     },
     {
       "ticker": "TSLA",
       "currency": "USD",
-      "regularMarketPrice": 460.82,
+      "regularMarketPrice": 461.51,
       "previousClose": null,
-      "open": 462.42,
-      "high": 464.16,
-      "low": 460.7,
-      "close": 460.82,
-      "volume": 4269981
+      "open": 462.5,
+      "high": 465.7,
+      "low": 452.65,
+      "close": 461.51,
+      "volume": 67770000
     }
   ]
 }
