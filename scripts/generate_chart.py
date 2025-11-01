@@ -11,12 +11,16 @@ from pathlib import Path
 
 def generate_chart():
     """株価データを読み込んでグラフを生成"""
-    # データ読み込み
-    data_file = Path(__file__).parent.parent / "data" / "stock_prices.json"
+    # 最新のJSONファイルを検索
+    data_dir = Path(__file__).parent.parent / "data"
+    json_files = sorted(data_dir.glob("stock_prices_*.json"), reverse=True)
     
-    if not data_file.exists():
-        print(f"Error: {data_file} not found")
+    if not json_files:
+        print(f"Error: No stock_prices_*.json files found in {data_dir}")
         return
+    
+    data_file = json_files[0]  # 最新のファイル
+    print(f"Using data file: {data_file.name}")
     
     with open(data_file, "r", encoding="utf-8") as f:
         data = json.load(f)
@@ -63,11 +67,13 @@ def generate_chart():
                 f'${height:.2f}',
                 ha='center', va='bottom', fontsize=9, fontweight='bold')
     
-    # 保存
+    # 保存 - タイムスタンプベースのファイル名
     chart_dir = Path(__file__).parent.parent / "charts"
     chart_dir.mkdir(exist_ok=True)
     
-    output_file = chart_dir / "latest.png"
+    # JSONファイル名からタイムスタンプを抽出
+    timestamp_str = data_file.stem.replace("stock_prices_", "")
+    output_file = chart_dir / f"chart_{timestamp_str}.png"
     plt.tight_layout()
     plt.savefig(output_file, dpi=150, bbox_inches='tight')
     plt.close()
