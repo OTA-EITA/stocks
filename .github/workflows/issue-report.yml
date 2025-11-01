@@ -3,43 +3,42 @@ name: Daily Stock Report
 on:
   workflow_run:
     workflows: ["Stock Data Pipeline"]
-    types:
-      - completed
+    types: [completed]
+
+permissions:
+  issues: write
+  contents: read
 
 jobs:
   create-issue:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    
-    permissions:
-      issues: write
-      contents: read
-    
+
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      
-      - name: Read stock data
-        id: read_data
+      - uses: actions/checkout@v4
+
+      - name: Check stock data file
+        id: check
         run: |
           if [ -f data/stock_prices.json ]; then
-            echo "data_exists=true" >> $GITHUB_OUTPUT
+            echo "exists=true" >> $GITHUB_OUTPUT
           else
-            echo "data_exists=false" >> $GITHUB_OUTPUT
+            echo "exists=false" >> $GITHUB_OUTPUT
           fi
-      
-      - name: Create issue body with code block
-        if: steps.read_data.outputs.data_exists == 'true'
+
+      - name: Create issue body
+        if: steps.check.outputs.exists == 'true'
         run: |
-          echo '## 株価データ' > issue_body.md
-          echo '' >> issue_body.md
-          echo '```json' >> issue_body.md
-          cat data/stock_prices.json >> issue_body.md
-          echo '' >> issue_body.md
-          echo '```' >> issue_body.md
-      
-      - name: Create issue from data
-        if: steps.read_data.outputs.data_exists == 'true'
+          {
+            echo "## 株価データレポート"
+            echo ""
+            echo "\`\`\`json"
+            cat data/stock_prices.json
+            echo "\`\`\`"
+          } > issue_body.md
+
+      - name: Create GitHub Issue
+        if: steps.check.outputs.exists == 'true'
         uses: peter-evans/create-issue-from-file@v5
         with:
           title: "株価レポート - ${{ github.event.workflow_run.created_at }}"
