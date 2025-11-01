@@ -17,28 +17,32 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Check stock data file
-        id: check
+      - name: Find latest stock data file
+        id: find_file
         run: |
-          if [ -f data/stock_prices.json ]; then
+          LATEST_FILE=$(ls -t data/stock_prices_*.json 2>/dev/null | head -n1)
+          if [ -n "$LATEST_FILE" ]; then
+            echo "file=$LATEST_FILE" >> $GITHUB_OUTPUT
             echo "exists=true" >> $GITHUB_OUTPUT
           else
             echo "exists=false" >> $GITHUB_OUTPUT
           fi
 
       - name: Create issue body
-        if: steps.check.outputs.exists == 'true'
+        if: steps.find_file.outputs.exists == 'true'
         run: |
           {
             echo "## 株価データレポート"
             echo ""
+            echo "**データファイル:** \`${{ steps.find_file.outputs.file }}\`"
+            echo ""
             echo "\`\`\`json"
-            cat data/stock_prices.json
+            cat "${{ steps.find_file.outputs.file }}"
             echo "\`\`\`"
           } > issue_body.md
 
       - name: Create GitHub Issue
-        if: steps.check.outputs.exists == 'true'
+        if: steps.find_file.outputs.exists == 'true'
         uses: peter-evans/create-issue-from-file@v5
         with:
           title: "株価レポート - ${{ github.event.workflow_run.created_at }}"
