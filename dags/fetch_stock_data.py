@@ -102,7 +102,9 @@ def main():
     data_dir = Path(__file__).parent.parent / "data"
     data_dir.mkdir(exist_ok=True)
     
-    output_file = data_dir / "stock_prices.json"
+    # タイムスタンプベースのファイル名
+    timestamp_str = datetime.utcnow().strftime("%Y%m%d%H%M%S")
+    output_file = data_dir / f"stock_prices_{timestamp_str}.json"
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(output_data, f, indent=2, ensure_ascii=False)
     
