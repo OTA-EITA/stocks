@@ -3,50 +3,49 @@ name: Slack Notification
 on:
   workflow_run:
     workflows: ["Stock Data Pipeline"]
-    types:
-      - completed
+    types: [completed]
 
 jobs:
   notify:
     runs-on: ubuntu-latest
-    
+
     steps:
-      - name: Send Slack notification
+      - name: Notify Slack on success
         if: ${{ github.event.workflow_run.conclusion == 'success' }}
         run: |
           if [ -n "${{ secrets.SLACK_WEBHOOK_URL }}" ]; then
-            curl -X POST ${{ secrets.SLACK_WEBHOOK_URL }} \
+            curl -s -X POST ${{ secrets.SLACK_WEBHOOK_URL }} \
               -H 'Content-Type: application/json' \
               -d '{
-                "text": "✅ 株価データ取得が完了しました",
+                "text": "📈 株価データ更新完了",
                 "blocks": [
                   {
                     "type": "section",
                     "text": {
                       "type": "mrkdwn",
-                      "text": "*株価データパイプライン実行完了*\n実行時刻: ${{ github.event.workflow_run.created_at }}"
+                      "text": "*株価データパイプライン完了*\n実行時刻: `${{ github.event.workflow_run.created_at }}`"
                     }
                   }
                 ]
               }'
           else
-            echo "SLACK_WEBHOOK_URL is not set. Skipping notification."
+            echo "No webhook configured"
           fi
-      
-      - name: Send failure notification
+
+      - name: Notify Slack on failure
         if: ${{ github.event.workflow_run.conclusion == 'failure' }}
         run: |
           if [ -n "${{ secrets.SLACK_WEBHOOK_URL }}" ]; then
-            curl -X POST ${{ secrets.SLACK_WEBHOOK_URL }} \
+            curl -s -X POST ${{ secrets.SLACK_WEBHOOK_URL }} \
               -H 'Content-Type: application/json' \
               -d '{
-                "text": "❌ 株価データ取得に失敗しました",
+                "text": "⚠️ 株価データ更新に失敗しました",
                 "blocks": [
                   {
                     "type": "section",
                     "text": {
                       "type": "mrkdwn",
-                      "text": "*株価データパイプライン実行失敗*\n実行時刻: ${{ github.event.workflow_run.created_at }}"
+                      "text": "*パイプライン実行失敗*\n実行時刻: `${{ github.event.workflow_run.created_at }}`"
                     }
                   }
                 ]
