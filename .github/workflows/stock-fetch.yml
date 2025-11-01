@@ -45,8 +45,23 @@ jobs:
           git add -A
           if [[ -n $(git status --porcelain) ]]; then
             git commit -m "auto: update stock data and chart ${TIMESTAMP}"
-            git pull --rebase origin master || echo "No rebase needed"
-            git push origin HEAD:master || echo "Push skipped"
+
+            echo "--- Fetching latest changes ---"
+            git fetch origin master
+
+            echo "--- Attempting safe rebase ---"
+            git rebase origin/master || {
+              echo "Conflict detected, applying ours strategy."
+              git rebase --abort || true
+              git merge origin/master --strategy-option=ours
+            }
+
+            echo "--- Final push ---"
+            git push origin HEAD:master || {
+              echo "Push failed, retrying once more."
+              git pull --rebase origin master || true
+              git push origin HEAD:master
+            }
           else
             echo "No changes to commit"
           fi
