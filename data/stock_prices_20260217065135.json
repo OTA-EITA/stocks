@@ -1,0 +1,60 @@
+{
+  "timestamp": "2026-02-17T06:51:35.652755Z",
+  "stocks": [
+    {
+      "ticker": "AAPL",
+      "currency": "USD",
+      "regularMarketPrice": 255.78,
+      "previousClose": null,
+      "open": 262.01,
+      "high": 262.23,
+      "low": 255.45,
+      "close": 255.78,
+      "volume": 56229900
+    },
+    {
+      "ticker": "GOOGL",
+      "currency": "USD",
+      "regularMarketPrice": 305.72,
+      "previousClose": null,
+      "open": 307.73,
+      "high": 308.63,
+      "low": 303.71,
+      "close": 305.72,
+      "volume": 38465000
+    },
+    {
+      "ticker": "MSFT",
+      "currency": "USD",
+      "regularMarketPrice": 401.32,
+      "previousClose": null,
+      "open": 404.45,
+      "high": 405.54,
+      "low": 398.05,
+      "close": 401.32,
+      "volume": 34041200
+    },
+    {
+      "ticker": "AMZN",
+      "currency": "USD",
+      "regularMarketPrice": 198.79,
+      "previousClose": null,
+      "open": 198.88,
+      "high": 201.16,
+      "low": 197.28,
+      "close": 198.79,
+      "volume": 66215800
+    },
+    {
+      "ticker": "TSLA",
+      "currency": "USD",
+      "regularMarketPrice": 417.44,
+      "previousClose": null,
+      "open": 414.31,
+      "high": 424.06,
+      "low": 410.88,
+      "close": 417.44,
+      "volume": 51351200
+    }
+  ]
+}
