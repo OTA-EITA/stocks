@@ -1,60 +1,60 @@
 {
-  "timestamp": "2025-10-31T06:22:07.747837Z",
+  "timestamp": "2025-11-01T16:56:31.466406Z",
   "stocks": [
     {
       "ticker": "AAPL",
       "currency": "USD",
-      "regularMarketPrice": 271.4,
+      "regularMarketPrice": 270.37,
       "previousClose": null,
-      "open": 271.99,
-      "high": 274.14,
-      "low": 268.48,
-      "close": 271.4,
-      "volume": 68953200
+      "open": 276.99,
+      "high": 277.32,
+      "low": 269.16,
+      "close": 270.37,
+      "volume": 86096700
     },
     {
       "ticker": "GOOGL",
       "currency": "USD",
-      "regularMarketPrice": 281.48,
+      "regularMarketPrice": 281.19,
       "previousClose": null,
-      "open": 291.59,
-      "high": 291.59,
-      "low": 280.06,
-      "close": 281.48,
-      "volume": 74795800
+      "open": 283.21,
+      "high": 286.0,
+      "low": 277.03,
+      "close": 281.19,
+      "volume": 39241400
     },
     {
       "ticker": "MSFT",
       "currency": "USD",
-      "regularMarketPrice": 525.76,
+      "regularMarketPrice": 517.81,
       "previousClose": null,
-      "open": 530.48,
-      "high": 534.97,
-      "low": 522.12,
-      "close": 525.76,
-      "volume": 40931700
+      "open": 528.88,
+      "high": 529.32,
+      "low": 515.1,
+      "close": 517.81,
+      "volume": 33978900
     },
     {
       "ticker": "AMZN",
       "currency": "USD",
-      "regularMarketPrice": 222.86,
+      "regularMarketPrice": 244.22,
       "previousClose": null,
-      "open": 227.06,
-      "high": 228.44,
-      "low": 222.75,
-      "close": 222.86,
-      "volume": 100515400
+      "open": 250.1,
+      "high": 250.5,
+      "low": 243.98,
+      "close": 244.22,
+      "volume": 166210300
     },
     {
       "ticker": "TSLA",
       "currency": "USD",
-      "regularMarketPrice": 440.1,
+      "regularMarketPrice": 456.56,
       "previousClose": null,
-      "open": 451.05,
-      "high": 455.06,
-      "low": 439.61,
-      "close": 440.1,
-      "volume": 72128500
+      "open": 446.75,
+      "high": 458.0,
+      "low": 443.69,
+      "close": 456.56,
+      "volume": 82980800
     }
   ]
 }
